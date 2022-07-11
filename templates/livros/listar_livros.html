@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% if user.is_authenticated %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="text-right mr-3">
+                    <a href="/livros/criar/{{ l.id }}">
+                        <button type="button" class="btn mb-1 btn-info">
+                            Add <span class="btn-icon-right"><i class="fa fa-plus"></i></span>
+                        </button>
+                    </a>
+                </div>
+                <div class="col-12 filter-div" style="margin-left: 58px; margin-top: 14px;" >
+                    <h5>Filtrar livros por série:</h5>
+                    <select name="filter" id="filter" class="form-control" style="width: 200px;">
+                        <option value="">Escolha uma opção</option>
+                        <option value="Disponivel">Disponível</option>
+                        <option value="Agendado">Agendados</option>
+                        <option value="Emprestado">Emprestados</option>
+                        <option value="Solicitado">Solicitados</option>
+
+                    </select>
+
+                </div><br>
+                {% if livros %}
+                    {% for l in livros %}
+                <div class="livros-lista">
+                        <a href="/livros/{{ l.id }}/"><img height="250" width="200" src="{{ l.imagem }}"></a>
+                    
+                         <div class="text-right mr-3">
+                            <a href="/livros/editar/{{ l.id }}">
+                                <button type="button" class="btn mb-1 btn-primary">
+                                    Editar <span class="btn-icon-right"> <i class="fa fa-edit"></i> </span>
+                                </button>
+                            </a>
+                            <a href="/livros/excluir/{{ l.id }}">
+                                <button type="button" class="btn mb-1 btn-danger">
+                                    Excluir <span class="btn-icon-right"> <i class="fa fa-close"></i> </span>
+                                </button>
+                            </a>
+                            </div>
+                        </div>
+                            {% endfor %}
+
+                            {% else %}
+                                Não há livros cadastrados.
+                                <div class="text-right mr-3">
+                                    <a href="/livros/criar/{{ l.id }}">
+                                        <button type="button" class="btn mb-1 btn-info">
+                                            Add <span class="btn-icon-right"><i class="fa fa-plus"></i></span>
+                                        </button>
+                                    </a>
+                                </div>
+                        
+                            {% endif %}
+                       
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="{% static 'js/script.js' %}"></script>
+{% endblock %}
+    {% else %}
+        <a href="/accounts/login"> </a>
+    {% endif %}

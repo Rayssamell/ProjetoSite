@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="row" style="margin-top:5%;">
+    <div class="col-md-4 offset-md-4">
+        <div class="card auth-card" style="min-height: 440px;">
+            <div class="card-body">
+                <h4 class="card-title text-center">LOGIN!</h4>
+
+                <form method="POST">
+                    {% csrf_token %}
+                    
+                    <input type="hidden" name="next" value="{{next}}">
+
+                    <div id="div_id_username" class="form-group">
+                        <label for="id_username" class=" requiredField">Nome: </label> 
+                        <div class="input-form-mod"> 
+                             <input type="text" name="username" autofocus="" autocapitalize="none" autocomplete="username" maxlength="150" class="textinput textInput form-control" required="" id="id_username"> 
+                        </div> 
+                    </div>
+
+                    <div id="div_id_password" class="form-group"  > 
+                        <label for="id_password" class=" requiredField" class="input-form-mod">Senha</label> 
+                        
+                        <div class="input-form-mod"> 
+                            <input type="password" name="password" autocomplete="current-password" class="textinput textInput form-control" required="" id="id_password"> 
+                        </div> 
+                    </div>
+                    
+                    
+                         <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+                
+                </form>
+
+                <p class="change-form-p">Novo na plataforma? Cadastre-se <a href="/accounts/register"> Clique aqui! </p>
+            </div>
+        </div>
+    </div>  
+</div>
+
+{% endblock %}
+

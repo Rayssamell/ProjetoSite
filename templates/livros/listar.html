@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% if user.is_authenticated %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="col-12 filter-div" style="margin-left: 58px; margin-top: 14px;" >
+                    <h5>Filtrar livros por série:</h5>
+                    <select name="filter" id="filter" class="form-control" style="width: 200px;">
+                        <option value="">Escolha uma opção</option>
+                        <option value="1ano">1° ano</option>
+                        <option value="2ano">2° ano</option>
+                        <option value="3ano">3° ano</option>
+                    </select>
+                </div><br>
+                <div class="row">
+                {% if livros %}
+                    {% for l in livros %}
+                <div class="col-md-3">
+                        <a href="/livros/{{ l.id }}/"><img height="250" width="200" src="{{ livro.imagem.url }}"></a><br>
+                </div>      
+                    {% endfor %}
+
+                {% endif %}
+                       
+                </div>
+            </div>
+        </div>
+    </div>
+</div>  
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="{% static 'js/script.js' %}"></script>
+{% endblock %}
+
+    {% else %}
+        <a href="/accounts/login"> </a>
+    {% endif %}

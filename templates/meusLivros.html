@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+    <div class="container">
+        <br>
+        <h3>Meus Livros</h3>
+
+        {% for emprestimo in emprestimos %}
+
+            <div class="cartao">
+
+                <div class="titulo">
+                    <h3>{{emprestimo.livro}}</h3>
+                </div>
+                <hr>
+                <div class="body">
+
+                
+
+                </div>
+               
+               
+                
+              
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock  %}

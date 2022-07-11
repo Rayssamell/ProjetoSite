@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="pt"><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Cadastre-se">
+    <meta name="description" content="">
+    <title>CADASTRO</title>
+    <link rel="stylesheet" href="{% static 'css/nicepage.css' %}" media="screen">
+<link rel="stylesheet" href="{% static 'css/cadastro.css' %}" media="screen">
+    <script class="u-script" type="text/javascript" src="{% static 'js/jquery.js' %}" defer=""></script>
+    <script class="u-script" type="text/javascript" src="{% static 'js/nicepage.js' %}" defer=""></script>
+    <meta name="generator" content="Nicepage 4.13.4, nicepage.com">
+    <meta property="og:title" content="Cadastro">
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+    <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700">
+    
+    
+    <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": ""
+}</script>
+    <meta name="theme-color" content="#478ac9">
+    <meta property="og:type" content="website">
+  </head>
+  <body class="u-body u-xl-mode">
+
+    <section class="u-align-center u-clearfix u-grey-5 u-section-1" id="sec-08e0">
+      <div class="u-clearfix u-gutter-20 u-layout-wrap u-layout-wrap-1">
+        <div class="u-layout">
+          <div class="u-layout-row">
+            <div class="u-container-style u-layout-cell u-size-38 u-layout-cell-1">
+              <div class="u-container-layout u-container-layout-1">
+                <h1 class="u-align-center u-text u-text-default u-text-1">Cadastre-se</h1>
+                <div class="u-form u-form-1">
+                  
+                <form method="POST" >
+                  {% csrf_token %}
+  
+                  <div id="username" class="form-group"> 
+                      <label for="username" class=" requiredField">Nome</label> 
+                      <div> 
+                          <input type="text" name="username" maxlength="150" autocapitalize="none" autocomplete="username" autofocus="" class="textinput textInput form-control">    
+                      </div> 
+                  </div> 
+                  <div class="form-group">
+                    <label for="exampleFormControlInput1">Endereço de email</label>
+                    <input type="email" name= "email" class="form-control" id="exampleFormControlInput1" placeholder="nome@exemplo.com">
+                    <small id="emailHelp" class="form-text text-muted"> Apenas letras, dígitos e @/_.</small>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleFormControlSelect1">Selecione</label>
+                    <select class="form-control" id="exampleFormControlSelect1">
+                          <option value="Professor">Professor</option>
+                          <option value="Administrador">Administrador</option>
+                        </select>
+                       
+                    <div id="div_id_matricula" class="form-group"> 
+                      <label for="id_matricula" class=" requiredField">Matricula</label> 
+                      <div> 
+                          <input type="text" name="matricula" maxlength="150" autocapitalize="none" autocomplete="matricula" autofocus="" class="textinput textInput form-control" required="" id="id_matricula">
+                           <small id="hint_id_matricula" class="form-text text-muted"> Apenas letras e dígitos</small> 
+                      </div> 
+                  </div> 
+                </div> 
+                  <div id="div_id_password1" class="form-group"> <label for="id_password1" class=" requiredField">Crie uma senha</label>
+                      <div>
+                          <input type="password" name="password1" autocomplete="new-password" class="textinput textInput form-control" required="" id="id_password1">
+                          <small id="hint_id_password1" class="form-text text-muted">
+                              <ul>
+                                  <li>Sua senha deve conter pelo menos 8 caracteres.</li>
+                                  <li>Sua senha não pode ser totalmente numérica.</li>
+                              </ul>
+                          </small> 
+                      </div> 
+                  </div> 
+                  <div id="div_id_password2" class="form-group"> 
+                      <label for="id_password2" class=" requiredField">Confirme a senha</label> 
+                      <div> 
+                          <input type="password" name="password2" autocomplete="new-password" class="textinput textInput form-control" required="" id="id_password2"> 
+                          <small id="hint_id_password2" class="form-text text-muted">Digite a mesma senha de antes, para verificação.</small> 
+                      </div> 
+                  </div>
+  
+                  <button type="submit" class="btn btn-primary btn-block">Registrar</button>
+              
+              </form>
+                    
+                </div>
+                <h6 class="u-text u-text-default u-text-2">
+                  <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-2" href="/accounts/login">Já tem uma conta? Faça LOGIN<br>
+                    <br>
+                  </a>
+                </h6>
+              </div>
+            </div>
+        
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    
+</body>
+</html>
+{% endblock %}

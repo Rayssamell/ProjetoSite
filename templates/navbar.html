@@ -1,0 +1,29 @@
+{% load static %}
+<header id="header" class="d-flex align-items-center">
+  <div class="container d-flex align-items-center" >
+
+    <h1 class="logo me-auto"><a href="/livros/">DIDATIZANDO</a></h1>
+    <!-- Uncomment below if you prefer to use an image logo -->
+    <a href="{% static 'home.html' %}" class="logo me-auto"><img src="{% static 'img/166088.png" alt="" class="img-fluid"></a>
+
+    <nav id="navbar" class="navbar">
+      <ul>
+        <li><a class="nav-link scrollto active" href="/livros/listar">Home</a></li>
+        <li><a class="nav-link scrollto" href="/livros/meusLivros">Meus Livros</a></li>
+        <li><a class="nav-link scrollto" href="/livros/agendados">Agendados</a></li>
+        <li><a class="nav-link scrollto " href="/livros/devolvidos">Devolvidos</a></li>
+        <li><a class="getstarted scrollto" href="/livros/listar_livros">Ver Livros</a></li>
+        <li>
+          <form class="d-flex" action="{% url 'buscar_livro' %}" method="POST">
+          {% csrf_token %}
+            <input name="infor" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+  </li>
+      </ul>
+      <i class="bi bi-list mobile-nav-toggle"></i>
+    </nav>
+    <!-- navbar -->
+
+  </div>
+</header>
